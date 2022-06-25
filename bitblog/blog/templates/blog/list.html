@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %} Home Page {%endblock%}
+
+{%block content%}
+
+    {% if latest_posts_list %}
+        {% for a in latest_posts_list%}
+        <div class="post">
+            <div class="post-profile">
+                <div class="post-profile-img"><img src="{{ a.user_img.url }}" alt="{{ image }}" alt=""></div>
+                <div class="small-text profile-text">{{a.user_name}}</div>
+            </div>
+            <div class="post-img">
+                <img src="{{a.post_img.url }}" alt="post img" >
+            </div>
+            <div class="post-action">
+                <img src="{% static 'blog/img/Like.svg' %}" alt="like" class="like">
+                <img src="{% static 'blog/img/Comments.svg' %}" alt="comments" class="comment">
+            </div>
+        </div>
+        {%endfor%}
+    {%else%}
+
+    {%endif%}
+
+{%endblock%}

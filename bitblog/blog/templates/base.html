@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=768, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/fonts/style.css' %}">
+    <title>{% block title%} Bit-blog{%endblock%}</title>
+</head>
+<body>
+    <header class="main-text">Bit-blog</header>
+
+    <div id="content">
+        {%block content%}{% endblock %}
+    </div>
+
+    <footer>
+        <div class="navbar">
+            <a href="#"><img src="{% static 'blog/img/Home.svg' %}" alt="home-page" class="footer-h btn"></a>
+            <a href=""><img src="{% static 'blog/img/Messanger.svg' %}" alt="messanger" class="footer-m btn"></a>
+            <a href=""><img src="{% static 'blog/img/Profile.svg' %}" alt="my_profile" class="footer-p btn"></a>
+        </div>
+    </footer>
+</body>
+</html>
