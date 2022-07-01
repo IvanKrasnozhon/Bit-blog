@@ -8,15 +8,11 @@
         {% for a in latest_posts_list%}
         <div class="post">
             <div class="post-profile">
-                <div class="post-profile-img"><img src="{{ a.user_img.url }}" alt="{{ image }}" alt=""></div>
-                <div class="small-text profile-text">{{a.user_name}}</div>
+                <div class="post-profile-img"><img src="{{ a.profile.user_img.url }}" alt="{{ image }}" alt=""></div>
+                <a href="{{ a.profile.get_absolute_url }}"><div class="small-text profile-text">{{a.profile.user.username}}</div></a>
             </div>
             <div class="post-img">
                 <img src="{{a.post_img.url }}" alt="post img" >
-            </div>
-            <div class="post-action">
-                <img src="{% static 'blog/img/Like.svg' %}" alt="like" class="like">
-                <img src="{% static 'blog/img/Comments.svg' %}" alt="comments" class="comment">
             </div>
         </div>
         {%endfor%}

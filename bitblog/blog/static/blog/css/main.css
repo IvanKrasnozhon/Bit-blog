@@ -1,6 +1,10 @@
 *{     margin:0; 
     padding:0; 
 }
+a {
+    text-decoration: none;
+    color: black;
+}
 body {
     width:768px;
     margin:0 auto;
@@ -36,10 +40,26 @@ footer {
     padding-bottom: 18px;
     border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
-.navbar .btn{
-    display: flexbox;
+
+.navbar {
+    display: flex;
     flex-direction: row;
+}
+
+.navbar .btn{
     width: 60px;
+}
+.footer-img {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.footer-img img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 9px;
 }
 .footer-m {
     margin: auto 254px;
@@ -83,9 +103,16 @@ footer {
     margin-bottom: 9px;
 }
 .post-action {
+    display: flex;
+    flex-direction: row;
     margin-top: 13px;
     margin-bottom: 22px;
+    vertical-align: middle;
 }
+.post-action div {
+    margin-right: 11px;
+}
+
 .like {
     margin-right: 22px;
     width: 38px;
@@ -97,4 +124,104 @@ footer {
 }
 .post {
     margin-top: 0px;
+    margin-bottom: 22px;
+}
+
+.profile-img {
+    width: 168px;
+    height: 168px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid black;
+}
+.profile-img img {
+    height: 168px;
+    width: auto;
+}
+.p-posts {
+    margin-top: 35px;
+}
+.profile-info {
+    margin-top: 37px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    text-align: center;
+    padding-bottom: 35px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    margin-bottom: 35px;
+}
+.profile-name {
+    margin-top: 22px;
+}
+.profile-data {
+    margin-left: 66px;
+    margin-top: 37px;
+    display: flex;
+    flex-direction: row;
+    margin-right: 100px;
+}
+
+.profile-data li {
+    text-align: center;
+    list-style-type: none;
+    margin-right: 100px;
+}
+.s-text {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.form-input {
+    font-family: 'Sansation', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+.addpost_wrapper *{
+    font-family: 'Sansation', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px;
+}
+.p2 {
+    margin-bottom: 5px;
+}
+.form-error li {
+    list-style: none;
+    color: red;
+}
+.inputs {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+.title {
+    margin-bottom: 20px;
+    margin-left: 35%;
+    font-family: 'Sansation', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.logout {
+    margin-top: 60px;
+    text-decoration: none;
+
+}
+.logout a {
+    color: #000;
+    transition: all 0.5s ease;
+    padding: 14px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+}
+.form-button {
+    padding: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    font-family: 'Sansation', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin-left: 45%;
+    margin-top: 22px;
 }
