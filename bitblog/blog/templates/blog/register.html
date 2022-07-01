@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %} Home Page {%endblock%}
+
+{%block content%}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="addpost_wrapper">
+            {% for f in form %}
+            <p class="inputs"><label class="form-label small-text" for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
+            <div class="form-error small-text">{{ f.errors }}</div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="small-text">Register</button>
+    </form>
+
+{%endblock%}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %} {{content.title}} {%endblock%}
+
+{%block content%}
+
+{% if content.profile %}
+    <div class="profile-info">
+        <div class="profile-main">
+            {% if request.user.id != content.profile.user.id %}
+                <div class="profile-img"><img src="{{ content.profile.user_img.url }}" alt=""></div>
+            {% else %}
+                <div class="profile-img"><a href="{% url 'edit_profile' %}"><img src="{{ content.profile.user_img.url }}" alt=""></a></div>
+            {% endif %}
+
+            
+            <div class="profile-name main-text">{{content.profile.user.username}}</div>
+        </div>
+        <div>
+            <ul class="profile-data">
+                <li>
+                    <p class="main-text">{{content.profile.posts}}</p>
+                    <p class="main-text s-text">posts</p>
+                </li>
+            </ul>
+        </div>
+        {% if request.user.id == content.profile.user.id %}
+        <div class="main-text logout"><a href="{% url 'logout' %}">LOGOUT</a></div>
+        {% endif %}
+    </div>
+    {%else%}
+
+    {%endif%}
+
+    {% if content.latest_posts_list %}
+        {% for a in content.latest_posts_list%}
+    <div class="p-posts">
+        <div class="post">
+            <div class="post-profile">
+                <div class="post-profile-img"><img src="{{ a.profile.user_img.url }}" alt=""></div>
+                <div class="small-text profile-text">{{a.profile.user.username}}</div>
+            </div>
+            <div class="post-img">
+                <img src="{{a.post_img.url }}" alt="post img" >
+            </div>
+        </div>
+    </div>
+        {%endfor%}
+    {%else%}
+
+    {%endif%}
+
+{%endblock%}

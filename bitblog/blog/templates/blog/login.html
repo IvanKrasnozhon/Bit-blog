@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %} Login {%endblock%}
+
+{%block content%}
+
+    <form method="post">
+        {% csrf_token %}
+        <h1 class="title">LOGIN | <a href="{% url 'register' %}">REGISTER</a></h1>
+
+        <div class="form-error">{{form.non_field_error}}</div>
+        {% for f in form %}
+            <p class="inputs"><label class="form-label small-text" for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
+            <div class="form-error small-text">{{ f.errors }}</div>
+        {% endfor %}
+
+        <button type="submit" class="small-text form-button">LOGIN</button>
+    </form>
+
+{%endblock%}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %} Create new post {%endblock%}
+
+{%block content%}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="addpost_wrapper">
+            {{form.as_p}}
+        </div>
+
+        <button type="submit" class="logout">Create post</button>
+    </form>
+
+{%endblock%}
