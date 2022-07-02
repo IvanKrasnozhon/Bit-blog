@@ -113,14 +113,37 @@ footer {
     margin-right: 11px;
 }
 
-.like {
-    margin-right: 22px;
-    width: 38px;
-    height: auto;
-}
 .comment {
-    width: 40px;
+    width: 200px;
     height: auto;
+    display: flex;
+    flex-direction: row;
+}
+.comment p {
+    margin-left: 10px;
+    font-size: 18px;
+    margin-top: 7px;
+}
+.comments {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom:rgba(0, 0, 0, 0.5);
+}
+.comment-text {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 300;
+}
+.add_comment_btn {
+    margin-top: -10px;
+    padding: 3px;
+    background-color: #fff;
+}
+.conf-btn {
+    margin-top: 10px;
+    margin-left: 40%;
+    border: 2px solid rgba(0, 0, 0, 0.5);
 }
 .post {
     margin-top: 0px;
@@ -185,6 +208,8 @@ footer {
     font-weight: normal;
     font-style: normal;
     font-size: 18px;
+    display: grid;
+    grid-column: 50% 50%;
 }
 .p2 {
     margin-bottom: 5px;
@@ -216,6 +241,9 @@ footer {
     padding: 14px;
     border: 2px solid rgba(0, 0, 0, 0.5);
 }
+ button .logout{
+    padding: 5px;
+}
 .form-button {
     padding: 10px;
     border: 2px solid rgba(0, 0, 0, 0.5);
@@ -224,4 +252,12 @@ footer {
     font-style: normal;
     margin-left: 45%;
     margin-top: 22px;
+}
+.post-text {
+    margin-top: 22px;
+    font-family: 'Sansation', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.9);
 }

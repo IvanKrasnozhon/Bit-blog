@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout, login
 
-from .forms import AddPostForm, EditProfileForm, LoginUserForm, RegisterUserForm
+from .forms import AddCommentForm, AddPostForm, EditProfileForm, LoginUserForm, RegisterUserForm
 from .models import *
 
 def index(request): 
@@ -48,6 +48,37 @@ def addPost(request):
     else:
         form = AddPostForm()
     return render(request, 'blog/addpost.html', {'form': form})
+
+def addComment(request, post_id):
+    post = Post.objects.get(id=post_id)
+    if request.method == 'POST':
+        form = AddCommentForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.profile_id = request.user.id
+            instance.post_id = post_id
+            instance.save()
+            _r = str(post_id)
+            return redirect(reverse('show_post', kwargs={'post_id': post_id}))
+    else:
+        form = AddCommentForm()
+
+    content = {
+        'form': form,
+        'post': post
+    }
+    return render(request, 'blog/addcomment.html', {'content': content})
+
+def showPost(request, post_id):
+    post = Post.objects.get(id=post_id)
+    title = post.profile.user.username + "  " + str(post.post_date)
+    comments = Comment.objects.filter(post_id=post_id)
+    content = {
+        'post': post,
+        'title': title,
+        'comments': comments
+    }
+    return render(request, 'blog/post.html', {'content':content})
 
 def EditProfile(request):
     try:

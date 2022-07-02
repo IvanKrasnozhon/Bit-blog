@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %} Create new post {%endblock%}
+
+{%block content%}
+
+    <div class="p-posts">
+        <div class="post">
+            <div class="post-profile">
+                <div class="post-profile-img"><img src="{{ content.post.profile.user_img.url }}" alt=""></div>
+                <div class="small-text profile-text">{{content.post.profile.user.username}}</div>
+            </div>
+            <div class="post-img">
+                <img src="{{content.post.post_img.url }}" alt="post img" >
+            </div>
+            <div class="post-text">
+                <p>{{content.post.post_info}}</p>
+            </div>
+        </div>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="addpost_wrapper">
+            {{content.form.as_p}}
+        </div>
+
+        <div class="main-text add_comment_btn"><button type="submit">Add comment</button></div>
+    </form>
+
+{%endblock%}

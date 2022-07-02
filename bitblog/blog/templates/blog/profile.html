@@ -43,6 +43,17 @@
             <div class="post-img">
                 <img src="{{a.post_img.url }}" alt="post img" >
             </div>
+            <div class="post-text">
+                <p>{{a.post_info}}</p>
+            </div>
+            <div class="post-action">
+                <a href="{{ a.post_comment_add }}">
+                    <div class="comment">
+                        <img src="{% static 'blog/img/Comments.svg' %}" alt="">
+                        <p class="small-text">Add comment</p> 
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
         {%endfor%}

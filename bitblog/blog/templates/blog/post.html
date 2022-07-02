@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %} {{content.title}} {%endblock%}
+
+{%block content%}
+        <div class="p-posts">
+            <div class="post">
+                <div class="post-profile">
+                    <div class="post-profile-img"><img src="{{ content.post.profile.user_img.url }}" alt=""></div>
+                    <div class="small-text profile-text">{{content.post.profile.user.username}}</div>
+                </div>
+                <div class="post-img">
+                    <img src="{{content.post.post_img.url }}" alt="post img" >
+                </div>
+                <div class="post-text">
+                    <p>{{content.post.post_info}}</p>
+                </div>
+                {% for a in content.comments%}
+                <div class="comments">
+                    <a href="{{ a.profile.get_absolute_url }}"><div class="small-text profile-text">{{a.post.profile.user.username}}</div></a>
+                    <div class="comment-text small-text">{{a.comment_info}}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+{%endblock%}

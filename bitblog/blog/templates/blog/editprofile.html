@@ -6,9 +6,9 @@
 
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div class="addpost_wrapper">
-        {{form.as_p}}
-        </div>
+            <div class="addpost_wrapper">
+                {{form.as_p}}
+            </div>
         <button type="submit" class="form-button small-text">Confirm</button>
     </form>
 

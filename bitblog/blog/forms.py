@@ -1,19 +1,26 @@
 from dataclasses import field
 from multiprocessing import AuthenticationError
 from django import forms
-from .models import Post, Profile
+from .models import Post, Profile, Comment
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 class AddPostForm(forms.ModelForm):
+    post_info = forms.CharField(label='Description', widget=forms.TextInput(attrs={'class': 'form-input post-info'}))
     class Meta:
         model = Post
-        fields = ['post_img']
+        fields = ['post_img', 'post_info']
         widgets = {
-            'post_img': forms.FileInput(attrs={'class': 'form-img'})
+            'post_img': forms.FileInput(attrs={'class': 'form-img'}),
         }
+
+class AddCommentForm(forms.ModelForm):
+    comment_info = forms.CharField(label='Comment', widget=forms.TextInput(attrs={'class': 'form-input post-info'}))
+    class Meta:
+        model = Comment
+        fields = ['comment_info']
 
 class EditProfileForm(forms.ModelForm):
     class Meta:

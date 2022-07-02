@@ -6,11 +6,12 @@
 
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div class="addpost_wrapper">
-            {{form.as_p}}
-        </div>
+        {% for f in form %}
+            <p class="inputs"><label class="form-label small-text" for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
+            <div class="form-error small-text">{{ f.errors }}</div>
+        {% endfor %}
 
-        <button type="submit" class="logout">Create post</button>
+        <button type="submit" class="main-text add_comment_btn conf-btn">Create post</button>
     </form>
 
 {%endblock%}
